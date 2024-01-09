@@ -96,7 +96,7 @@ header div:not(.header-social,.header-info,.header-info-nav,.hidden-nav){
     width:2em;
 }
 .hidden-nav{
-    width:100%;
+    width:calc(100% - 5px);
     display:flex;
     flex-wrap:wrap;
     justify-content:space-around;

@@ -1,4 +1,4 @@
-const fastify = require('fastify')({logger: {transport: {target: "@fastify/one-line-logger"}}});
+const fastify = require('fastify')({logger: {transport:{target:"@fastify/one-line-logger"}}});
 const path = require('node:path');
 const fs = require('node:fs');
 fastify.register(require('@fastify/static'),{ 
@@ -6,23 +6,27 @@ fastify.register(require('@fastify/static'),{
     prefix: '/',
     decorateReply: true
 })
+fastify.register(require('@fastify/rate-limit'), {
+    max: 10,
+    timeWindow: 60000,
+    ban:2
+  })
 //route for home page
 fastify.get('/', (request, reply) => {
     reply.headers({'Content-Type':'text/HTML','Cache-Control':'max-age=0,public'});
     reply.sendFile("index.html");
 })
-fastify.get('/:page', (request, reply) => {
-    const currentPage = request.params.page;
-    console.log(currentPage)
-    const validePage = ["horaire","itineraire","carrieres","contact","info-traffic","itineraire","plan","visite",""];
-    if(!currentPage){
+fastify.get('/:pages', (request, reply) => {
+    const currentPage = request.params.pages;
+    const validePage = ["horaire","itineraire","carrieres","contact","info-traffic","itineraire","plan","visite","wip"];
+    if(!validePage.includes(currentPage)){
         reply.headers({'Content-Type':'text/HTML','Cache-Control':'max-age=0,public'});
         reply.code(404);
         reply.sendFile("page/404.html");
         return;
     }
     reply.headers({'Content-Type':'text/HTML','Cache-Control':'max-age=0,public'});
-    reply.sendFile(`${validePage.includes(currentPage)?'page/'+currentPage+'.html':'index.html'}`);
+    reply.sendFile(`page/${currentPage}.html`);
 })
 //routes to handle font, js, css and img assets
 fastify.get('/assets/:type/:file', (request, reply) => {
