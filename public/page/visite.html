@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RATP - Plan</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/img/ratp.ico">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/anchor@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs"></script>
+    <script src="/assets/js/front.js"></script>
+</head>
+<body x-data="front">
+    <header>
+        <div x-ref="header">
+        <a class="header-logo" href="/">
+            <img src="/assets/img/logo_ratp.png">
+        </a>
+        <div class="header-info-nav">
+            <div class="header-info">
+                <a href="/carrieres">
+                    Recrutement
+                </a>
+                <div class="header-social">
+                    <a href="/">
+                        <img src="/assets/img/facebook.png">
+                    </a>
+                    <a href="/">
+                        <img src="/assets/img/twitter.png">
+                    </a>
+                    <a href="/">
+                        <img src="/assets/img/instagram.png">
+                    </a>
+                </div>
+                <select>
+                    <option name="francais">Français</option>
+                    <option name="anglais">Anglais</option>
+                </select>
+                <span>
+                    <input type="search" placeholder="Que recherchez-vous ?">
+                    <img src="/assets/img/search.png" class="icon search">
+                </span>
+            </div>
+            <nav>
+                <a href="/">Acceuil</a>
+                <a href="/horaire">Horaire</a>
+                <a href="/itineraire">Itinéraires</a>
+                <a href="/info-traffic">Info traffic</a>
+                <a href="/plan">plan</a>
+                <a href="/visite">Visiter Paris</a>
+                <a href="/contact">Contact</a>
+                <img src="/assets/img/nav.png" @click="switchShowScrollNav()">
+            </nav>
+        </div>
+        </div>
+        <div class="hidden-nav" x-show="showScrollNav" x-collapse.duration.700ms x-anchor="$refs.header">
+            <a href="/">Se déplacer</a>
+            <a href="/">Découvrir</a>
+            <a href="/">Groupe RATP</a>
+            <a href="/">Mobilisés pour vous</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="visit-paris">
+            <h2 class="">Visiter Paris et ses environs</h2> 
+            <section class="itineraire">
+                <section class="search-trip-large">
+                    <div>
+                        <span class="light-text">Ou allons-nous ?</span>
+                    </div>
+                    <div>
+                        <span class="light-text">de : <input type="text" placeholder="lieu, station, adresse"></span>
+                        <span class="light-text">a : <input type="text" placeholder="lieu, station, adresse"></span>
+                    </div>
+                    <div>
+                        <span class="light-text"><select><option>Départ</option><option>Arrivé</option></select></span>
+                        <span class="light-text"><input type="datetime-local"></span>
+                    </div>
+                    <div>
+                        <span class="light-text"><img class="icon" src="/assets/img/accessibilite.png"><input type="checkbox"> Itinéraires accessibles</span>
+                        <span class="light-text"><input type="submit" value="C'est parti"></span>
+                    </div>
+                </section>
+            </section>
+        </section>
+        <section class="title">
+            <h3>
+                Circulez, il y a tout à voir !
+            </h3>
+            <p>
+                L'ensemble du réseau est à votre service pour que votre séjour dans la capitale soit inoubliable.<br>Tour Eiffel, Basilique Saint-Denis, Arc de Triomphe… la RATP vous permet de découvrir Paris en bus, en métro ou en tramway !
+            </p>
+        </section>
+        <section class="title">
+            <h3>
+                Notre Kit pour devenir un vrai Parisien
+            </h3>
+        </section>
+        <section class="three-rect">
+            <span class="colSquareAlt">
+                <a href="/" class="light-text">
+                    La semaine, les métros et RER circulent de 5h30 à 1h15 environ
+                </a>
+            </span>
+            <span class="colSquare">
+                <a href="/" class="light-text">
+                    La nuit, les bus Noctilien prennent le relais pour vous transporter
+                </a>
+            </span>
+            <span class="colSquareAlt">
+                <a href="/" class="light-text">
+                    Accédez aux gares et aéroports d'Ile-de-France
+                </a>
+            </span>
+        </section>
+        <section class="three-rect">
+            <span class="colSquare">
+                <a href="/" class="light-text">
+                    Visitez sans compter grâce à nos forfaits illimités !
+                </a>
+            </span>
+            <span class="colSquareAlt">
+                <a href="/" class="light-text">
+                    Perdu ? Plusieurs plans sont à votre disposition !
+                </a>
+            </span>
+            <span class="colSquare">
+                <a href="/" class="light-text">
+                    Retrouvez tous nos services disponibles en station
+                </a>
+            </span>
+        </section>
+        <section class="three-rect">
+            <span class="colSquare">
+                <a href="/" class="light-text">
+                    Transport, mode d'emploi : voyager, c'est facile !
+                </a>
+            </span>
+            <span class="colSquareAlt">
+                <a href="/" class="light-text">
+                    Découvrez nos conseils sécurité, pour un trajet en toute sérénité
+                </a>
+            </span> 
+        </section>
+        <section class="title">
+            <h3>
+                C'est fait pour vous !
+            </h3>
+        </section>
+        <section class="Article-Three"> 
+            <article>
+                <h4>
+                    <img src="/assets/img/visit1.webp">
+                    <span>Alors, quoi de 9 cet été ?</span>
+                </h4>
+                <p>En visite à Paris ? Nous sommes heureux de vous accompagner ! Découvrez nos services, nos bons plans et les nombreuses surprises qui vous ...</p>
+                <a href="/">En savoir plus</a>
+            </article>
+            <article>
+                <h4>
+                    <img src="/assets/img/visit2.webp">
+                    <span>Service de consignes de sacs et bagages</span>
+                </h4>
+                <p>Le service de consignes de sacs et bagages tout près de vous, pour profiter de Paris en toute liberté !</p>
+                <a href="/">En savoir plus</a>
+            </article>
+            <article>
+                <h4>
+                    <img src="/assets/img/new3.jpg">
+                    <span>Profitez de notre service de prêt de parapluies !</span>
+                </h4>
+                <p>Le service de prêt de parapluie est disponible sur l'ensemble de nos lignes. Ce service pratique affirme la volonté de la RATP de vous accompagner...</p>
+                <a href="/">En savoir plus</a>
+            </article>
+        </section>
+        <section class="banderoll">
+            <h3>Paris à travers vos yeux</h3>
+            <a href="https://www.instagram.com/ratp/" target="_blank">
+                <img src="/assets/img/Instagram_icon.png.webp">
+                @RATP
+            </a>
+            <a href="https://www.instagram.com/ratp/" target="_blank">
+                Nous suivre sur instagram >
+            </a>
+        </section>
+        <section class="three-rect">
+            <span id="visit-rect-1">
+                <a href="/">
+                    Site officiel du l'office de Tourisme et des congrès
+                </a>
+            </span>
+            <span id="visit-rect-2">
+                <a href="/" class="light-text">
+                    Art contemporain à Paris
+                </a>
+            </span>
+            <span id="visit-rect-3">
+                <a href="/" class="light-text">
+                    Paris vert
+                </a>
+            </span>
+        </section>
+        <section class="three-rect">
+            <span id="visit-rect-4">
+                <a href="/" class="light-text">
+                    Paris la nuit
+                </a>
+            </span>
+            <span id="visit-rect-5">
+                <a href="/" class="light-text">
+                    Paris plein air
+                </a>
+            </span>
+            <span id="visit-rect-6">
+                <a href="/" class="light-text">
+                    Citybreak à Paris : quel quartier pour quelle ambiance Paris à travers vos yeux
+                </a>
+            </span>
+        </section>
+    </main>
+    
+    <footer>
+        <section>
+            <button x-ref="buttonHiddenAccess" @click="switchHiddenAccess()" class="buttonHiddenAccess">Accès Rapide</button>
+            <div x-show="showHiddenAccess" x-anchor="$refs.buttonHiddenAccess" class="hiddenAccess">
+                <a href="/">Accessibilité</a>
+                <a href="/">Registre d'accessibilité</a>
+                <a href="/">Contacts Accessibilité</a>
+                <a href="/">Institutionnels</a>
+                <a href="/">Fournisseurs</a>
+                <a href="/">Presse</a>
+                <a href="/">Bulletins officiels</a>
+                <a href="/">Open Data</a>
+                <a href="/">Fondation Groupe RATP</a>
+            </div>
+            <a class="footer-link" href="/">Aide & Contact</a>
+            <a class="footer-link" href="/">Médiateur de la RATP</a>
+            <a class="footer-link" href="/">Télépaiement d'amende</a>
+            <a class="footer-link" href="/">Le Groupe Ratp</a>
+            <a class="footer-link" href="/">Les avantages maRATP</a>
+        </section>
+        <section>
+            <a class="footer-link" href="/">Contact</a>
+            <a class="footer-link" href="/">Plan du site</a>
+            <a class="footer-link" href="/">Accessibilité web</a>
+            <a class="footer-link" href="/">Données personnelles</a>
+            <a class="footer-link" href="/">Mentions légales</a>
+            <a class="footer-link" href="/">Tout savoir sur les cookies</a>
+            <a class="footer-link" href="/">Politique générale de confidentialité</a>
+            <a class="footer-link" href="/">Gérer vos cookies</a>
+        </section>
+    </footer>
+    <button id="BackToTop">
+        <img alt="" src="/assets/img/BackToTop.png">
+    </button> 
+    <script src="/assets/js/scrollToTop.js"></script>
+</body>
+</html>

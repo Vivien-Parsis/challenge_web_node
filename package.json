@@ -1,0 +1,17 @@
+{
+  "name": "ratp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/one-line-logger": "^1.2.0",
+    "@fastify/static": "^6.12.0",
+    "fastify": "^4.25.2"
+  }
+}
