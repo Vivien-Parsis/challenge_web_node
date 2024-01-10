@@ -84,7 +84,8 @@ header div:not(.header-social,.header-info,.header-info-nav,.hidden-nav){
     justify-content:space-evenly;
 }
 .header-info{
-    margin-bottom:.5em;
+    padding-bottom:.5em;
+    border-bottom: var(--black) 3px solid;
 }
 .header-info-nav nav{
     margin-top:.5em;
@@ -102,6 +103,16 @@ header div:not(.header-social,.header-info,.header-info-nav,.hidden-nav){
     justify-content:space-around;
     padding:0.5em 0;
     border-top:var(--black) 2px solid;
+}
+
+.info-traffic img{
+    width: 100%;
+}
+.horaire{
+    width: 55%;
+}
+.horaire img{
+    width: 100%;
 }
 footer{
     width:100%;
@@ -188,7 +199,7 @@ main section, main h3{
 }
 main h3{
     text-align:center;
-    margin:1em 0;
+    margin:.1em 0;
 }
 .index-search{
     display:flex;
@@ -362,6 +373,10 @@ main h3{
     justify-content:center;
     align-content:center;
     align-items:center;
+}
+.itineraire div iframe{
+    width: 80vw;
+    aspect-ratio: 16/9;
 }
 .three-rect{
     width:100%;

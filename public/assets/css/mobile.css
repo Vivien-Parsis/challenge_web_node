@@ -1,0 +1,61 @@
+@media (max-width: 640px) {
+  .header-info-nav,
+  .search-trip-large {
+    width: 100%;
+  }
+  .index-career p,
+  .index-career h3,
+  .Article-Three article,
+  .itineraire,
+  .search-trip,
+  .three-rect span,
+  .Contact-Three article,
+  .title h3,
+  .title p,
+  .career-video-text,
+  .career-video-media,
+  .why-join span {
+    width: 90%;
+  }
+  .info-traffic,
+  footer section {
+    width: 80%;
+  }
+  .header-logo {
+    display: none;
+  }
+  .Article-Three {
+    margin: 0.5em 0;
+  }
+  .Article-Three article {
+    height: fit-content;
+    margin: 0.5em 0;
+  }
+  footer {
+    justify-content: center;
+  }
+  .three-rect span {
+    aspect-ratio: unset;
+  }
+  .three-rect span a {
+    font-size: 1.2em;
+  }
+  .title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .Contact-Three article {
+    height: fit-content;
+  }
+  .career-video-text p {
+    font-size: 1.25em;
+  }
+  .why-join span {
+    margin: 0.5em 0;
+    height: fit-content;
+    aspect-ratio: unset;
+  }
+}
