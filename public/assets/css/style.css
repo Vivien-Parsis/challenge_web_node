@@ -439,6 +439,7 @@ main h3{
     width:100%;
     padding:2em 0;
     background-image:url(../img/visit-head.jpg);
+    background-size: cover;
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
@@ -564,6 +565,7 @@ main h3{
 }
 .why-join{
     width:80%;
+    margin: 0.5em 0;
     display:flex;
     flex-wrap:wrap;
     justify-content:space-around;
