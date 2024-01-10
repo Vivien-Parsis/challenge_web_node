@@ -15,23 +15,26 @@
 <body x-data="front">
     <header>
         <div x-ref="header">
-        <a class="header-logo" href="/">
+        <a class="header-logo" href="/"  x-show="!IsMobile">
             <img src="/assets/img/logo_ratp.png">
         </a>
         <div class="header-info-nav">
             <div class="header-info">
-                <a href="/carrieres">
+                <a href="/carrieres" x-show="!IsMobile">
                     Recrutement
                 </a>
                 <div class="header-social">
-                    <a href="/wip">
+                    <a href="/wip"  x-show="!IsMobile">
                         <img src="/assets/img/facebook.png">
                     </a>
-                    <a href="/wip">
+                    <a href="/wip" x-show="!IsMobile">
                         <img src="/assets/img/twitter.png">
                     </a>
-                    <a href="/wip">
+                    <a href="/wip" x-show="!IsMobile">
                         <img src="/assets/img/instagram.png">
+                    </a>
+                    <a href="/" x-show="IsMobile">
+                        <img src="/assets/img/logo_ratp.png">
                     </a>
                 </div>
                 <select>
@@ -42,18 +45,20 @@
                     <input type="search" placeholder="Que recherchez-vous ?">
                     <img src="/assets/img/search.png" class="icon search">
                 </span>
+                <span>
+                    <img src="/assets/img/nav.png" @click="switchShowMobileScrollNav()" class="burger-nav-button"  x-show="IsMobile">
+                </span>
             </div>
-            <nav>
-                <a href="/">Acceuil</a>
+            <nav class="computer-nav" x-show="!IsMobile">
+                <a class="active-anchor" href="/">Acceuil</a>
                 <a href="/horaire">Horaire</a>
                 <a href="/itineraire">Itinéraires</a>
                 <a href="/info-traffic">Info traffic</a>
                 <a href="/plan">plan</a>
                 <a href="/visite">Visiter Paris</a>
                 <a href="/contact">Contact</a>
-                <img src="/assets/img/nav.png" @click="switchShowScrollNav()">
+                <img src="/assets/img/nav.png" @click="switchShowScrollNav()" class="burger-nav-button">
             </nav>
-        </div>
         </div>
         <div class="hidden-nav" x-show="showScrollNav" x-collapse.duration.700ms x-anchor.offset.8="$refs.header">
             <a href="/wip">Se déplacer</a>
@@ -62,7 +67,24 @@
             <a href="/wip">Mobilisés pour vous</a>
         </div>
     </header>
-
+    <nav class="mobile-nav" x-show="ShowMobileScrollNav">
+        <span>
+            <img src="/assets/img/cross.png" class="burger-nav-button"  x-show="IsMobile"  @click="switchShowMobileScrollNav()">
+        </span>
+        <span>
+            <a href="/">Acceuil</a>
+            <a href="/horaire">Horaire</a>
+            <a href="/itineraire">Itinéraires</a>
+            <a href="/info-traffic">Info traffic</a>
+            <a href="/plan">plan</a>
+            <a href="/visite">Visiter Paris</a>
+            <a href="/contact">Contact</a>
+            <a href="/carrieres" x-show="!IsMobile">
+                    Recrutement
+                </a>
+        </span>Recrutement</a>
+        </span>
+    </nav>
     <main>
         <section class="main-title">
             <h2 class="light-text">RATP</h2>
@@ -107,15 +129,21 @@
                 <a href="/wip">En savoir plus</a>
             </article>
         </section>
-        <section class="index-contact">
-            <h4 class="light-text">
+        <section class="index-question">
+            <h3 class="light-text">
                 Aide
-            </h4>
+            </h3>
             <span>
                 <div>
                     <input type="text" placeholder="Vous avez une question sur...">
                     <img src="/assets/img/search.png" class="icon search">
                 </div>
+            </span>
+            <span class="index-quick-question">
+                <a class="light-text" href="/wip">Souscrire à un forfait Navigo</a>
+                <a class="light-text" href="/wip">Les avantages du Paris Visite</a>
+                <a class="light-text" href="/wip">Tarif et cartes</a>
+                <a class="light-text" href="/wip">Restez informé(e) avec maRatp</a>
             </span>
             <span>
                 <a href="/wip" class="light-text">Toutes les questions ></a>
@@ -217,6 +245,9 @@
     </footer>
     <button id="BackToTop">
         <img alt="" src="/assets/img/BackToTop.png">
+    </button> 
+    <button id="ChatBot">
+        <img alt="" src="/assets/img/chat.png">
     </button> 
     <script src="/assets/js/scrollToTop.js"></script>
 </body>

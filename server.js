@@ -69,10 +69,10 @@ fastify.get("/assets/:type/:file", (request, reply) => {
     : file.endsWith("jpg") ? "image/jpg"
     : "") : "";
   const cacheAge =
-      type == "font" ? "0"
-    : type == "img" ? "0"
-    : type == "js" ? "7890000"
-    : type == "css" ? "7890000"
+      type == "font" ? "0"//todo switch to 7890000
+    : type == "img" ? "0"//todo switch to 7890000
+    : type == "js" ? "0"//todo switch to 7890000
+    : type == "css" ? "0"//todo switch to 7890000
     : "0";
   file = fs.existsSync(`public/assets/css/${file.replace(".css", ".min.css")}`) ? file.replace(".css", ".min.css")
     : fs.existsSync(`public/assets/js/${file.replace(".js", ".min.js")}`) ? file.replace(".js", ".min.js")

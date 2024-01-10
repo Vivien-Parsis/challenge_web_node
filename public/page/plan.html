@@ -15,12 +15,15 @@
 <body x-data="front">
     <header>
         <div x-ref="header">
-        <a class="header-logo" href="/">
+        <a class="header-logo" href="/"  x-show="!IsMobile">
             <img src="/assets/img/logo_ratp.png">
         </a>
         <div class="header-info-nav">
             <div class="header-info">
-                <a href="/carrieres">
+                <a href="/carrieres" x-show="!IsMobile">
+                    Recrutement
+                </a>
+        </span>
                     Recrutement
                 </a>
                 <div class="header-social">
@@ -42,18 +45,20 @@
                     <input type="search" placeholder="Que recherchez-vous ?">
                     <img src="/assets/img/search.png" class="icon search">
                 </span>
+                <span>
+                    <img src="/assets/img/nav.png" @click="switchShowMobileScrollNav()" class="burger-nav-button"  x-show="IsMobile">
+                </span>
             </div>
-            <nav>
+            <nav class="computer-nav" x-show="!IsMobile">
                 <a href="/">Acceuil</a>
                 <a href="/horaire">Horaire</a>
                 <a href="/itineraire">Itinéraires</a>
                 <a href="/info-traffic">Info traffic</a>
-                <a href="/plan">plan</a>
+                <a class="active-anchor" href="/plan">plan</a>
                 <a href="/visite">Visiter Paris</a>
                 <a href="/contact">Contact</a>
-                <img src="/assets/img/nav.png" @click="switchShowScrollNav()">
+                <img src="/assets/img/nav.png" @click="switchShowScrollNav()" class="burger-nav-button">
             </nav>
-        </div>
         </div>
         <div class="hidden-nav" x-show="showScrollNav" x-collapse.duration.700ms x-anchor.offset.8="$refs.header">
             <a href="/wip">Se déplacer</a>
@@ -62,6 +67,20 @@
             <a href="/wip">Mobilisés pour vous</a>
         </div>
     </header>
+    <nav class="mobile-nav" x-show="ShowMobileScrollNav">
+        <span>
+            <img src="/assets/img/cross.png" class="burger-nav-button"  x-show="IsMobile"  @click="switchShowMobileScrollNav()">
+        </span>
+        <span>
+            <a href="/">Acceuil</a>
+            <a href="/horaire">Horaire</a>
+            <a href="/itineraire">Itinéraires</a>
+            <a href="/info-traffic">Info traffic</a>
+            <a href="/plan">plan</a>
+            <a href="/visite">Visiter Paris</a>
+            <a href="/contact">Contact</a>
+        </span>
+    </nav>
 
     <main>
         <section class="main-title">
@@ -78,16 +97,25 @@
         </section>
         <section class="three-rect">
             <span class="colSquareAlt">
+                <a href="/wip">
+                    <img class="icon-large" src="/assets/img/tvm.png">
+                </a>
                 <a href="/wip" class="light-text">
                     TVM
                 </a>
             </span>
             <span class="colSquare">
+                <a href="/wip">
+                    <img class="icon-large" src="/assets/img/plan-cdg-orly.png">
+                </a>
                 <a href="/wip" class="light-text">
                     Orly
                 </a>
             </span>
             <span class="colSquareAlt">
+                <a href="/wip">
+                    <img class="icon-large" src="/assets/img/plan-cdg-orly.png">
+                </a>
                 <a href="/wip" class="light-text">
                     CDG
                 </a>
@@ -95,16 +123,25 @@
         </section>
         <section class="three-rect">
             <span class="colSquare">
+                <a href="/wip">
+                    <img class="icon-large" src="/assets/img/map.png">
+                </a>
                 <a href="/wip" class="light-text">
                     Plans de secteur
                 </a>
             </span>
             <span class="colSquareAlt">
+                <a href="/wip">
+                    <img class="icon-large" src="/assets/img/map.png">
+                </a>
                 <a href="/wip" class="light-text">
                     Plans de quartier
                 </a>
             </span>
             <span class="colSquare">
+                <a href="/wip">
+                    <img class="icon-large" src="/assets/img/plan-noct.png">
+                </a>
                 <a href="/wip" class="light-text">
                     Noctilien
                 </a>
@@ -166,6 +203,9 @@
     <button id="BackToTop">
         <img alt="" src="/assets/img/BackToTop.png">
     </button> 
+    <button id="ChatBot">
+        <img alt="" src="/assets/img/chat.png">
+    </button>  
     <script src="/assets/js/scrollToTop.js"></script>
 </body>
 </html>

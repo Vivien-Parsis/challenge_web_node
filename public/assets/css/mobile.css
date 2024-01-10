@@ -21,9 +21,6 @@
   footer section {
     width: 80%;
   }
-  .header-logo {
-    display: none;
-  }
   .Article-Three {
     margin: 0.5em 0;
   }
@@ -59,5 +56,9 @@
   }
   .header-info-nav{
     margin-right:0;
+  }
+  .header-info {
+    padding-bottom: 0;
+    border-bottom: none;
   }
 }
