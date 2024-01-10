@@ -57,4 +57,7 @@
     height: fit-content;
     aspect-ratio: unset;
   }
+  .header-info-nav{
+    margin-right:0;
+  }
 }
