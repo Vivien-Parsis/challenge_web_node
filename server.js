@@ -20,20 +20,10 @@ fastify.get("/", (request, reply) => {
   reply.sendFile("page/index.html");
 });
 
+//routes to handle html page
 fastify.get("/:pages", (request, reply) => {
   const currentPage = request.params.pages;
-  const validePage = [
-    "horaire",
-    "itineraire",
-    "carrieres",
-    "contact",
-    "info-traffic",
-    "itineraire",
-    "plan",
-    "visite",
-    "wip",
-  ];
-  if (!validePage.includes(currentPage)) {
+  if (!fs.existsSync(`public/page/${currentPage}.html`)) {
     reply.headers({"Content-Type": "text/HTML","Cache-Control": "max-age=0,public"});
     reply.code(404);
     reply.sendFile("page/404.html");
